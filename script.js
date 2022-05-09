@@ -11,16 +11,21 @@ function openMenu(){
 function closeMenu(){
     document.body.classList.remove('menu-expended')
 };
-ScrollReveal({
-    origin: 'top',
-    distance: '30rem',
-    duration: 800,
-}).reveal(`#home,
- #home img,
-#home .stats,
-#services,
-#services header,
-#sercices .card,
-#about,
-#about header,
-#about .content`);
+
+function addEvents(){
+    ScrollReveal({
+        origin: 'top',
+        distance: '30rem',
+        duration: 800,
+    }).reveal(`#home,
+     #home img,
+    #home .stats,
+    #services,
+    #services header,
+    #sercices .card,
+    #about,
+    #about header,
+    #about .content,
+    #footer`);    
+}
+document.addEventListener('DOMContentLoaded',addEvents);

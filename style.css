@@ -11,7 +11,7 @@
     --paragraph: hsla(210, 9%, 31%, 1);
     --brand-green:hsl(170, 100%, 26%);
     --brand-beige:  hsla(39, 100%, 97%, 1);
-
+    --brand-green-hover:hsla(170, 100%, 14%, 1);
 
     --gray-headline:hsl(210, 11%, 15%);
     --brand-green-light:hsl(148, 23%, 89%);
@@ -98,9 +98,17 @@ section .button {
     margin-top: 3.2rem;
     text-decoration: none;
     width: fit-content;
+    transition: 200ms;
+}
+.button:hover {
+    background-color:var(--brand-green-hover);
 }
 section .content {
     width: 37.5rem;
+}
+.social-links{
+    display: flex;
+    gap:3.2rem;
 }
 /*=======HOME=============================*/
 
@@ -193,11 +201,9 @@ nav button {
 .open-menu{
     position: relative;
 }
-.social-links {
-    display:flex;
+nav .social-links{
     align-items: center;
     justify-content: center;
-    gap:3.2rem;
 }
 body.menu-expended {
     overflow: hidden;
@@ -356,4 +362,29 @@ div.card {
     display: flex;
     align-items: center;
     gap: 0.8rem;
+}
+/*=====================FOOTER==================*/
+footer {
+    background-color:var(--primary-color);
+    padding-block: 6rem;
+    color: var(--brand-beige);
+    text-align: left;
+    
+}
+footer .logo {
+    display: inline-block;
+    margin-bottom: 2.4rem;
+}
+footer .logo svg {
+    width: 23.6rem;
+    height: 3.1rem;
+}
+footer .logo path {
+    fill: white;
+}
+footer p {
+    Weight: 400;
+    size: 1.6rem;
+    line-height: 2.083rem;
+    margin-bottom: 3.2rem;
 }

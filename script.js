@@ -36,8 +36,7 @@ function addEvents(){
     #sercices .card,
     #about,
     #about header,
-    #about .content,
-    #footer`);    
+    #about .content`);    
 }
 document.addEventListener('DOMContentLoaded',addEvents);
 

@@ -6,17 +6,17 @@
     box-sizing: border-box;
 }
 :root {
-    --primary-color: hsl(170, 100%, 26%);
-    --headline: hsl(210, 11%, 15%);
-    --paragraph: hsla(210, 9%, 31%, 1);
-    --brand-green:hsl(170, 100%, 26%);
-    --brand-beige:  hsla(39, 100%, 97%, 1);
-    --brand-green-hover:hsla(170, 100%, 14%, 1);
-
-    --gray-headline:hsl(210, 11%, 15%);
-    --brand-green-light:hsl(148, 23%, 89%);
-    --brand-light:#DDDDDD;
-    --bg-light:hsl(180, 14%, 97%);
+    --hue:220;
+    --primary-color: hsl(var(--hue), 100%, 26%);
+    --headline: hsl(calc(var(--hue) + 50), 11%, 15%);
+    --paragraph: hsl(calc(var(--hue) + 40), 9%, 31%);
+    --brand-green:hsl(var(--hue), 100%, 26%);
+    --brand-beige:  hsl(calc(var(--hue) - 131), 100%, 97%);
+    --brand-green-hover:hsl(var(--hue), 100%, 14%);
+    --gray-headline:hsl(calc(var(--hue)+ 40), 11%, 15%);
+    --brand-green-light:hsl(calc(var(--hue) - 22), 23%, 89%);
+    --brand-light:hsl(calc(var(--hue) - 22), 23%, 89%);
+    --bg-light:hsl(calc(var(--hue) + 10), 14%, 97%);
 
 
 
@@ -179,9 +179,17 @@ nav {
 .logo{
     padding-right: 13rem;
 }
+.logo svg path:nth-child(-n+6){
+    fill: var(--headline);
+}
+.logo svg path:nth-child(n+7){
+    fill: var(--primary-color);
+}
+button.open-menu path {
+    stroke:var(--primary-color) ;
+}
 nav.scroll {
     background-color: var(--primary-color);   
- 
 }
 nav.wrapper{
    display: flex;
@@ -277,6 +285,12 @@ body.menu-expended button path{
     margin-bottom: 8rem;
     color:var(--primary-color);
 }
+.menu .button:hover{
+    background-color: var(--primary-color);
+    color: white;
+   filter: brightness(1.2);
+    
+}
 .close-menu {
     background:none;
     border: none;
@@ -288,22 +302,25 @@ body.menu-expended button path{
 #services h2 {
     margin-bottom: 6rem;
 }
-div.cards {
+#services .cards {
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
 }
-div.card {
+#services .card {
     height: 20.7rem;
     padding: 2.4rem;
     background-color: white;
     border: 0.1rem solid var(--brand-light);
     border-radius: 0.6rem;
 }
-.card svg {
+#services .card circle{
+    fill: var(--brand-light);
+}
+#services .card svg {
     display: flex;    
 }
-.card h3 {
+#services .card h3 {
     font-weight: 700;
     font-size: 2.4rem;
     line-height: 3.1rem;
@@ -311,7 +328,7 @@ div.card {
     margin-top: 1.6rem;
     height: 3.1rem;
 }
-.card p {
+#services .card p {
     font-weight: 400;
     font-size: 1.6rem;
     line-height: 2.4rem;
@@ -365,6 +382,9 @@ div.card {
     align-items: center;
     gap: 0.8rem;
 }
+#contact ul li svg path {
+    stroke: var(--brand-green);
+}
 /*=====================FOOTER==================*/
 footer {
     background-color:var(--primary-color);
@@ -381,8 +401,10 @@ footer .logo svg {
     width: 23.6rem;
     height: 3.1rem;
 }
-footer .logo path {
+footer .logo svg path[fill*="#212529"],
+footer .logo svg path[fill*="#00856F"]{
     fill: white;
+    
 }
 footer p {
     Weight: 400;
@@ -396,8 +418,14 @@ footer p {
     bottom: 1rem;
     right: 1rem;
     visibility: hidden;
+    transform: translateY(110%);
+    transition: 400ms;
 }
 #backToTopButton.show {
     opacity: 1;
     visibility: visible;
+    transform: translateY(0);
+}
+#backToTopButton circle {
+    fill: var(--primary-color);
 }

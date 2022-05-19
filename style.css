@@ -43,7 +43,7 @@ ul {
     list-style: none;
 }
 .wrapper {
-    width: 37.5rem;
+    width: min(50rem, 100%);
     margin-left: auto;
     margin-right: auto; 
 
@@ -104,7 +104,6 @@ section .button {
     background-color:var(--brand-green-hover);
 }
 section .content {
-    width: 37.5rem;
 }
 .social-links{
     display: flex;
@@ -117,7 +116,7 @@ section .content {
     width:100%;
     height: calc(108rem + var(--nav-height));
     background-color: var(--brand-light);
-    display:block;
+    display: flex;
     position: absolute;
     top: 0;
     left: 0;
@@ -167,14 +166,18 @@ section .content {
 /*=============NAVIGATION===========*/
 
 nav {
-    padding: 1.6rem 2.4rem;
     height: var(--nav-height);
     position: fixed;
     top:0;
     display: flex;
     z-index: 200;
     width: 100vw;
-
+}
+nav .on-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: 2.4rem;
 }
 .logo{
     padding-right: 13rem;
@@ -192,9 +195,9 @@ nav.scroll {
     background-color: var(--primary-color);   
 }
 nav.wrapper{
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 nav.scroll .logo path {
     fill: white;
@@ -236,7 +239,6 @@ body.menu-expended .close-menu{
     transform: translateY(100%);
 }
 body.menu-expended .menu {
-        position: fixed;
         top:0;
         left: 0;
         background-color: var(--primary-color);
@@ -296,7 +298,10 @@ body.menu-expended button path{
     border: none;
     cursor: pointer;
 }
-
+nav .menu,
+nav .close-menu {
+    position: fixed;
+}
 /*===============SERVICES==================*/
 
 #services h2 {
@@ -384,6 +389,10 @@ body.menu-expended button path{
 }
 #contact ul li svg path {
     stroke: var(--brand-green);
+}
+#contact img {
+    width: min(57.5rem, 100%);
+    height: min(37.9rem, 100%);
 }
 /*=====================FOOTER==================*/
 footer {
